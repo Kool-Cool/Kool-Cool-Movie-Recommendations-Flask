@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Autocomplete Example</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+    $(function() {
+      var availableTags = {{ movie_title.tolist()|tojson }};
+      $("#tags").autocomplete({
+        source: availableTags,
+        response: function(event, ui) {
+          if (ui.content.length === 0) {
+            $("#message").text("No results found");
+          } else {
+            $("#message").empty();
+          }
+        }
+      });
+    });
+
+    function submitForm() {
+      var selectedTag = $("#tags").val();
+
+      $.ajax({
+        type: "POST",
+        url: "/recommendations",
+        data: { title: selectedTag },
+        success: function(response) {
+          // Update the recommendation section with the response
+          $("#recommendationSection").html(response);
+        }
+      });
+    }
+  </script>
+  <title>Movie Recommendation</title>
+</head>
+
+<body>
+  <div class="ui-widget">
+    <label for="tags">Tags: </label>
+    <input id="tags">
+    <div id="message"></div>
+  </div>
+
+  <br>
+  <button type="submit" onclick="submitForm()">Submit</button>
+
+  <div id="recommendationSection"></div>
+</body>
+</html>
