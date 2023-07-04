@@ -3,6 +3,8 @@
 <head>
   
   {% include "navbar.html" %}
+  {% include "banner.html" %}
+
   
   
   <meta charset="utf-8">
@@ -43,9 +45,9 @@
 </head>
 
 <body>
-  <div class = "container">
+  <div class = "container" >
     <div class="ui-widget">
-      <label for="tags">Tags: </label>
+      <label for="tags">Movie Name: </label>
       <input id="tags">
       <div id="message"></div>
     </div>
@@ -55,9 +57,12 @@
 
     <div id="recommendationSection"></div>
 
-    {% include "footer.html" %}
+    
     
   </div>
-  
+
+  {% include "footer.html" %}
 </body>
+
 </html>
+
