@@ -20,5 +20,16 @@ def recommendations():
     return render_template('recommendations.html', title=title, recommendations=recommended_movies)
 
 
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+@app.route("/connect")
+def connect():
+    return render_template("connect.html")
+
+
+
 if __name__ == "__main__":
   app.run(debug=True)

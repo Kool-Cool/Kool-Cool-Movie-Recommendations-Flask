@@ -4,11 +4,13 @@
     <title>Movie Recommendations</title>
 </head>
 <body>
-    <h1>Movie Recommendations for "{{ title }}"</h1>
-    <ul>
-        {% for movie in recommendations %}
-        <li>{{ movie }}</li>
-        {% endfor %}
-    </ul>
+    <div class="container">    
+        <h1>Movie Recommendations for "{{ title }}"</h1>
+        <ul>
+            {% for movie in recommendations %}
+            <li>{{ movie }}</li>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>
