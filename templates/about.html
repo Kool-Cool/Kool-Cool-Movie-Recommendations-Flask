@@ -1,5 +1,115 @@
-{% include "navbar.html" %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Movie Recommendation Code Summary</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    p {
+      color: #666;
+      line-height: 1.5;
+    }
+    code {
+      background-color: #f5f5f5;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: Consolas, monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>Movie Recommendation Code Summary</h1>
+  <p>
+    The provided code snippet performs movie recommendation based on movie metadata using the TMDB Movie Metadata dataset from Kaggle.
+  </p>
+  
+  <h2>Functionality Overview</h2>
+  <ol>
+    <li>Libraries and Dependencies</li>
+    <li>Data Loading and Preprocessing</li>
+    <li>TF-IDF Vectorization</li>
+    <li>Cosine Similarity</li>
+    <li>Movie Recommendations</li>
+    <li>Data Parsing and Cleaning</li>
+    <li>Feature Extraction</li>
+    <li>Data Cleaning and Transformation</li>
+    <li>Feature Combination</li>
+    <li>CountVectorizer and Cosine Similarity</li>
+    <li>Movie Recommendation and Indexing</li>
+    <li>Final Recommendation</li>
+  </ol>
+  
+  <h2><a href="https://github.com/Kool-Cool/Kool-Cool-Movie-Recommendations-Flask">Code Snippet</a></h2>
 
-this is about me page
-
-{% include "footer.html" %}
+  
+  <h2>Explanation</h2>
+  <p>
+    The provided code snippet includes several steps to perform movie recommendation. Here's a brief explanation of each step:
+  </p>
+  
+  <h3>1. Libraries and Dependencies</h3>
+  <p>
+    The required libraries such as pandas, numpy, sklearn, and pickle are imported.
+  </p>
+  
+  <h3>2. Data Loading and Preprocessing</h3>
+  <p>
+    Two CSV files, 'tmdb_5000_credits.csv' and 'tmdb_5000_movies.csv', are read into DataFrames df1 and df2, respectively. The columns of df1 are renamed, and then it is merged with df2 based on the 'id' column.
+  </p>
+  
+  <h3>3. TF-IDF Vectorization</h3>
+  <p>
+    The TfidfVectorizer from scikit-learn is used to create a TF-IDF vectorizer object named tfidf. Any missing values (NaN) in the 'overview' column of df2 are replaced with an empty string. Then, the TF-IDF matrix is constructed by fitting and transforming the 'overview' data using tfidf.
+  </p>
+  
+  <h3>4. Cosine Similarity</h3>
+  <p>
+    The cosine similarity matrix is computed using the linear_kernel function from sklearn.metrics.pairwise. This matrix represents the similarity between movies based on their textual descriptions (TF-IDF representation).
+  </p>
+  
+  <h3>5. Movie Recommendations</h3>
+  <p>
+    The get_recommendations function is defined, which takes a movie title as input and returns the top 10 most similar movies based on cosine similarity scores. It uses the cosine similarity matrix and a reverse map of movie titles and indices to find the index of the input movie and retrieve the most similar movies.
+  </p>
+  
+  <h3>6. Data Parsing and Cleaning</h3>
+  <p>
+    The literal_eval function from the ast module is applied to parse stringified features ('cast', 'crew', 'keywords', 'genres') into their corresponding Python objects.
+  </p>
+  
+  <h3>7. Feature Extraction</h3>
+  <p>
+    Functions are defined to extract useful information from the parsed features. For example, the get_director function retrieves the director's name from the 'crew' feature, and the get_list function returns a list of the top three elements from a given feature.
+  </p>
+  
+  <h3>8. Data Cleaning and Transformation</h3>
+  <p>
+    The clean_data function is applied to lowercase all strings and remove spaces from names in the 'cast', 'keywords', 'director', and 'genres' features.
+  </p>
+  
+  <h3>9. Feature Combination</h3>
+  <p>
+    A new feature named 'soup' is created by combining the cleaned 'keywords', 'cast', 'director', and 'genres' features into a single string, separated by spaces. This step helps to capture more relevant information for similarity computation.
+  </p>
+  
+  <h3>10. CountVectorizer and Cosine Similarity</h3>
+  <p>
+    The CountVectorizer from sklearn.feature_extraction.text is imported, and a count matrix is created by fitting and transforming the 'soup' data. The cosine similarity matrix is computed based on the count matrix, representing the similarity between movies using the count-based approach.
+  </p>
+  
+  <h3>11. Movie Recommendation and Indexing</h3>
+  <p>
+    The main DataFrame is reset with a new index, and a reverse mapping of movie titles and indices is constructed. This mapping is used to retrieve the index of the input movie in the recommendation function.
+  </p>
+  
+  <h3>12. Final Recommendation</h3>
+  <p>
+    The get_recommendations function is called with a specific movie title, and it returns the top 10 most similar movies based on either TF-IDF or count-based cosine similarity, depending on the cosine similarity matrix used.
+  </p>
+</body>
+</html>
