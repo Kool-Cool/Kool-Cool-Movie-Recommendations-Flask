@@ -2,77 +2,75 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Movie Recommendation Code Summary</title>
+  <title>Connect</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-    h1 {
-      color: #333;
-    }
-    p {
-      color: #666;
-      line-height: 1.5;
-    }
-    .card {
-      display: inline-block;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      padding: 10px;
-      margin-right: 10px;
-      text-align: center;
-      width: 80px;
-    }
-    .card img {
-      width: 30px;
-      height: 30px;
-    }
+      /* Additional CSS styles */
+      .card-container {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+          max-width: 800px;
+          margin: 0 auto;
+          justify-items: center;
+      }
+  
+      .card {
+          background-color: #ffffff;
+          border: 1px solid #dddddd;
+          border-radius: 5px;
+          padding: 20px;
+          text-align: center;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          width: 200px;
+      }
+  
+      .card img {
+          display: block;
+          margin: 0 auto 10px; /* Center the icons vertically and horizontally */
+          max-width: 100px;
+          max-height: 100px;
+      }
+  
+      .card a {
+          display: block;
+          margin-top: 15px;
+          color: #007BFF;
+          text-decoration: none;
+      }
   </style>
 </head>
 <body>
-    <div class=container>
-        <!-- Social Media Links -->
-        <div>
-            <p class="my-50"><b>LET'S CONNECT</b></p>
-            <ul class="list">
-            <li class="list-inline-item">
-                <div class="card">
-                <a href="https://github.com/Kool-Cool">
-                    <img alt="github_logo" width="20" height="20" src="https://th.bing.com/th/id/OIP.D_Gm8IGCvkqmOgtU2hueVwHaHS?w=150&h=180&c=7&r=0&o=5&pid=1.7">
-                </a>
-                <p>Github</p>
-                </div>
-            </li>
-            <li class="list-inline-item">
-                <div class="card">
-                <a href="https://www.linkedin.com/in/omkar-jadhav-399158227/">
-                    <img alt="linkedin_logo" width="20" height="20" src="https://image.freepik.com/free-icon/linkedin-rondure_318-26627.jpg">
-                </a>
-                <p>LinkedIn</p>
-                </div>
-            </li>
-            <li class="list-inline-item">
-                <div class="card">
-                <a href="https://www.kaggle.com/koolcool0">
-                    <img alt="kaggle" width="20" height="20" src="https://w7.pngwing.com/pngs/210/701/png-transparent-kaggle-brands-icon.png">
-                </a>
-                <p>Kaggle</p>
-                </div>
-            </li>
-            <li class="list-inline-item">
-                <div class="card">
-                <a href="mailto:omkarjadhav0507@gmail.com">
-                    <img alt="e-main" width="20" height="20" src="https://icon-library.com/images/email-icon-black/email-icon-black-28.jpg">
-                </a>
-                <p>Email</p>
-                </div>
-            </li>
-            </ul>
+  <div class="content">
+    <h1 style="text-align: center;">Connect</h1>
+    <div class="card-container">
+        <!-- LinkedIn Card -->
+        <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/128/3536/3536569.png" alt="LinkedIn">
+            <p>LinkedIn</p>
+            <a href="https://www.linkedin.com/in/omkar-jadhav-399158227/">Connect on LinkedIn</a>
         </div>
+    
+        <!-- GitHub Card -->
+        <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/128/3291/3291695.png" alt="GitHub">
+            <p>GitHub</p>
+            <a href="https://github.com/Kool-Cool/TaskMaster">Visit GitHub Profile</a>
+        </div>
+    
+        <!-- Kaggle Card -->
+        <div class="card">
+            <img src="https://img.icons8.com/?size=512&id=1iP83OYM1FL-&format=png" alt="Kaggle">
+            <p>Kaggle</p>
+            <a href="https://www.kaggle.com/koolcool0">Explore Kaggle Profile</a>
+        </div>
+    
+        <!-- Email Card -->
+        <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/128/542/542689.png" alt="Email">
+            <p>Email</p>
+            <a href="mailto:omkarjadhav0507@gmail.com">Send an Email</a>
+        </div>
+    </div>
     </div>
 </body>
 </html>
-
-
-{% include "footer.html" %}
